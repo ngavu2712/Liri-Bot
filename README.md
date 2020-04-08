@@ -39,31 +39,23 @@ Commands:
     node liri.js do-what-it-says
     Run spotify-this-song for "I Want it That Way,"
 
-
-
-
-    
-
-    
-
-
-
-
 # Techology
 
 Node.js
 
 Npm Packages:
-    Axios (https://www.npmjs.com/package/axios)
-    Moment (https://www.npmjs.com/package/moment)
-    fs (https://www.npmjs.com/package/fs)
-    dotenv (https://www.npmjs.com/package/dotenv)
-    Node-Spotify-API (https://www.npmjs.com/package/node-spotify-api)
+
+    * Axios (https://www.npmjs.com/package/axios)
+    * Moment (https://www.npmjs.com/package/moment)
+    * fs (https://www.npmjs.com/package/fs)
+    * dotenv (https://www.npmjs.com/package/dotenv)
+    * Node-Spotify-API (https://www.npmjs.com/packagenode-spotify-api)
 
 APIs:
-    Spotify (https://developer.spotify.com/)
-    OMDB (http://www.omdbapi.com)
-    Bands In Town (http://www.artists.bandsintown.com/bandsintown-api)
+
+    * Spotify (https://developer.spotify.com/)
+    * OMDB (http://www.omdbapi.com)
+    * Bands In Town (http://www.artists.bandsintown.combandsintown-api)
 
 
 
