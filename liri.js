@@ -87,6 +87,16 @@ function findConcert (band) {
     })
 }
 
+//DO WHAT IT SAYS
+function randomCommand (random) {
+    fs.readFile("random.txt", "utf8", function(err, data){
+        if(err){
+            console.log(err);
+        } 
+        console.log(data);
+    })
+}
+
 
 switch (command) {
     case 'movie-this':
@@ -113,6 +123,7 @@ switch (command) {
     break;
 
     case 'do-what-it-says' :
+        randomCommand();
 
     break;
 
