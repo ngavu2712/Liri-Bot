@@ -52,7 +52,7 @@ function findSong (song){
         type: 'track',
         query: 'song'},
         function (err, data) {
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
 
             if(err){
                 console.log('This is not loaded' + err)
@@ -96,6 +96,26 @@ function randomCommand (random) {
             console.log(err);
         } 
         console.log(data);
+        data = data.split(","); //turn string into array
+
+        var command = data[0];
+        var value = data[1];
+
+        switch (command) {
+            case 'movie-this':
+                getMovie(value)
+            break;
+
+            case 'spotify-this-song':
+                findSong(value);
+            break;
+
+            case 'concert-this' :
+                fincConcert(value);
+            break;
+        }
+
+
     })
 }
 
