@@ -50,20 +50,21 @@ function findSong (song){
     var song = value || defaultSong;
     spotify.search({
         type: 'track',
-        query: "song"},
+        query: 'song'},
         function (err, data) {
+            console.log(JSON.stringify(data));
 
             if(err){
                 console.log('This is not loaded' + err)
             }
             else {
-                console.log("Artist: ", data.tracks.item[0].album.artists[0].name);
-                console.log("PreviewLink: ", data.tracks.item[0].preview_url);
-                console.log("Album Name: ", data.tracks.item[0].album.name);
+                console.log("Artist:" + data.tracks.items[0].album.artists[0].name);
+                console.log("PreviewLink:" + data.tracks.items[0].album.external_urls.spotify);
+                console.log("Album Name:" + data.tracks.items[0].album.name);
             }
 
         })
-    }
+}
 
 //BAND IN TOWN
 function findConcert (band) {
@@ -71,16 +72,17 @@ function findConcert (band) {
     console.log(band);
     var queryURL = 'https://rest.bandsintown.com/artists/'+ band + '/events?app_id=codingbootcamp&limit=3';
     axios.get(queryURL).then(function(response){
-        console.log(response);
-
+        //console.log(response);
+        var eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
         var result = `
+        Artist: ${response.data[0].artist.name}
         Venue_Name: ${response.data[0].venue.name}
         Venue_Country: ${response.data[0].venue.country}
-        Venue_City: ${response.data[0].venue.city}  
+        Venue_City: ${response.data[0].venue.city}
+        Event Date: ${eventDate}
         `
         console.log(result);
-        var eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
-        console.log("Event Date:" + eventDate);
+        
     })
     .catch(function(err){
         console.log(err);
