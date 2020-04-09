@@ -36,8 +36,14 @@ function getMovie (movieName){
         Released: ${response.data.Released}
         Rating: ${response.data.Ratings}
         `
-
-        console.log(result);       
+        console.log(result);  
+           
+        //Append the result to log.txt
+        fs.appendFile("log.txt", result, function(err){
+            if(err){
+                console.log("Error occurred!")
+            }
+        })
     })
 }
 
@@ -58,9 +64,21 @@ function findSong (song){
                 console.log('This is not loaded' + err)
             }
             else {
-                console.log("Artist:" + data.tracks.items[0].album.artists[0].name);
-                console.log("PreviewLink:" + data.tracks.items[0].album.external_urls.spotify);
-                console.log("Album Name:" + data.tracks.items[0].album.name);
+                var result2 = `
+                "Artist:" ${data.tracks.items[0].album.artists[0].name} 
+                "PreviewLink:" ${data.tracks.items[0].album.external_urls.spotify}
+                "Album Name:" ${data.tracks.items[0].album.name}
+                `
+                console.log(result2)
+                //console.log("Artist:" + data.tracks.items[0].album.artists[0].name);
+                //console.log("PreviewLink:" + data.tracks.items[0].album.external_urls.spotify);
+                //console.log("Album Name:" + data.tracks.items[0].album.name);
+
+                fs.writeFile("log.txt", result2, function (err){
+                    if(err) {
+                        console.log("Error occurred!")
+                    }
+                })
             }
 
         })
@@ -82,6 +100,13 @@ function findConcert (band) {
         Event Date: ${eventDate}
         `
         console.log(result);
+
+        fs.appendFile("log.txt", result, function(err){
+            if(err){
+                console.log("Error occurred")
+            }
+        })
+
         
     })
     .catch(function(err){
