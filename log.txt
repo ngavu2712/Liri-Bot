@@ -8,9 +8,4 @@
         Venue_Country: Mexico
         Venue_City: Tijuana
         Event Date: 05/16/2020
-        Title: Matrix
-        Year: 1993–
-        Rated: N/A
-        Released: 01 Mar 1993
-        Rating: [object Object]
         

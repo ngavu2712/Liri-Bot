@@ -121,7 +121,7 @@ function randomCommand (random) {
             console.log(err);
         } 
         console.log(data);
-        data = data.split(","); //turn string into array
+        data = data.split(","); //turn string into array with comma in between 
 
         var command = data[0];
         var value = data[1];
@@ -136,7 +136,7 @@ function randomCommand (random) {
             break;
 
             case 'concert-this' :
-                fincConcert(value);
+                findConcert(value);
             break;
         }
 
